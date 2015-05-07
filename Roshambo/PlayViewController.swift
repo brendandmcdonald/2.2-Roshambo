@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PlayViewController.swift
 //  Roshambo
 //
 //  Created by Brendan McDonald on 5/7/15.
@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PlayViewController: UIViewController {
 
+    @IBOutlet weak var rockButton: UIButton!
+    @IBOutlet weak var paperButton: UIButton!
+    @IBOutlet weak var scissorsButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
