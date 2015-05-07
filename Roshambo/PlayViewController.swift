@@ -23,7 +23,15 @@ class PlayViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    @IBAction func rockResults() {
+        
+        var controller: ResultsViewController
+        
+        controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
 }
 
