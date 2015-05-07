@@ -14,6 +14,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var paperButton: UIButton!
     @IBOutlet weak var scissorsButton: UIButton!
     
+    var testData = "Hello, World"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,6 +31,9 @@ class PlayViewController: UIViewController {
         var controller: ResultsViewController
         
         controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
+        
+        controller.testData = testData
+        
         self.presentViewController(controller, animated: true, completion: nil)
         
     }

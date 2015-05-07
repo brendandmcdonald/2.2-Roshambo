@@ -19,9 +19,12 @@ class ResultsViewController: UIViewController {
     
     @IBOutlet weak var testLabel: UILabel!
     
+    var testData: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.testLabel.text = testData
     }
     
     override func didReceiveMemoryWarning() {
