@@ -26,6 +26,7 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Option 1: Solely Programmatic VC Presentation
     @IBAction func rockResults() {
         // code only
         var controller: ResultsViewController
@@ -38,19 +39,26 @@ class PlayViewController: UIViewController {
         
     }
     
+    // Option 2: Programmatic + Segue VC Presentation
     @IBAction func paperResults() {
         
         performSegueWithIdentifier("customSegue", sender: self)
         //code segue
     }
     
+    // Option 3: Segue only; no code for VC Presentation.    
+    
     @IBAction func scissorsResults() {
         //segue only
     }
     
-    // override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // data pass happens here
-    // }
+    // This method supports both options 2 and 3 for passing data between VCs.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let controller = segue.destinationViewController as! ResultsViewController
+        
+        controller.testData = testData
+    }
 }
 
 /*
