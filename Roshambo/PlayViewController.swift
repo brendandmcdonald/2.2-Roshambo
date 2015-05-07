@@ -25,13 +25,27 @@ class PlayViewController: UIViewController {
     }
     
     @IBAction func rockResults() {
-        
+        // code only
         var controller: ResultsViewController
         
         controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
-        
         self.presentViewController(controller, animated: true, completion: nil)
         
     }
+    
+    @IBAction func paperResults() {
+        
+        //performSegueWithIdentifier(<#identifier: String?#>, sender: <#AnyObject?#>)
+        //code segue
+    }
+    
+    @IBAction func scissorsResults() {
+        //segue only
+    }
+    
+    // override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // data pass happens here
+    // }
 }
+
 

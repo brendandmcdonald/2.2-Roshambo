@@ -26,7 +26,7 @@ class ResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func dismiss() {
+    @IBAction func playAgain() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 

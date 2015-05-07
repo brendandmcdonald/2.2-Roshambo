@@ -30,6 +30,9 @@
                                 <state key="normal" title="Paper">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="stb-vC-3HV" kind="presentation" id="fcf-fJ-P0B"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your weapon wisely." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVE-Iw-SOB">
                                 <rect key="frame" x="191" y="57" width="219" height="21"/>
@@ -42,6 +45,9 @@
                                 <state key="normal" title="Scissors">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="stb-vC-3HV" kind="presentation" id="4MQ-kK-Tyd"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -79,7 +85,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismiss" destination="stb-vC-3HV" eventType="touchUpInside" id="4Uh-II-ajj"/>
+                                    <action selector="playAgain" destination="stb-vC-3HV" eventType="touchUpInside" id="CIq-LX-9DA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You played: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FS-GP-3cj">
@@ -121,4 +127,7 @@
             <point key="canvasLocation" x="1186" y="272"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4MQ-kK-Tyd"/>
+    </inferredMetricsTieBreakers>
 </document>
