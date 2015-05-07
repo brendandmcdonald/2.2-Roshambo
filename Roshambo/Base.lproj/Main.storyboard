@@ -31,7 +31,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="stb-vC-3HV" kind="presentation" id="fcf-fJ-P0B"/>
+                                    <action selector="paperResults" destination="BYZ-38-t0r" eventType="touchUpInside" id="GPI-pq-8Ei"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose your weapon wisely." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVE-Iw-SOB">
@@ -56,6 +56,7 @@
                         <outlet property="paperButton" destination="AQL-g8-BZM" id="gux-hY-Lc9"/>
                         <outlet property="rockButton" destination="ORd-UR-Dxy" id="fBn-aq-2A0"/>
                         <outlet property="scissorsButton" destination="1XE-OK-hhZ" id="yXD-tJ-hfP"/>
+                        <segue destination="stb-vC-3HV" kind="presentation" identifier="customSegue" id="DJP-zs-nAD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -112,12 +113,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TestLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEi-wq-Ua1">
+                                <rect key="frame" x="263" y="349" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="resultExplanationLabel" destination="S9B-wC-ldO" id="bnM-cE-0F7"/>
                         <outlet property="resultLabel" destination="J6C-g5-UEf" id="Ynl-A0-Us8"/>
+                        <outlet property="testLabel" destination="QEi-wq-Ua1" id="O5u-uu-sTh"/>
                         <outlet property="whatComputerPlayedLabel" destination="ebJ-r7-BUQ" id="4BH-jH-80b"/>
                         <outlet property="whatUserPlayedLabel" destination="8FS-GP-3cj" id="6M1-ty-Q7Z"/>
                     </connections>
@@ -128,6 +136,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4MQ-kK-Tyd"/>
+        <segue reference="DJP-zs-nAD"/>
     </inferredMetricsTieBreakers>
 </document>

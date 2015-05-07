@@ -16,6 +16,9 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var whatComputerPlayedLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var resultExplanationLabel: UILabel!
+    
+    @IBOutlet weak var testLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
