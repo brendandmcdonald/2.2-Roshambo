@@ -14,7 +14,21 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var paperButton: UIButton!
     @IBOutlet weak var scissorsButton: UIButton!
     
+    var computerChoice: String?
+    
     var testData = "Hello, World"
+    
+    // TODO: Add a function that makes a random play for the computer and outputs it to "computerChoice".
+    // TODO: Make this "computerChoice" display in all results views.
+    // TODO: Make a function that switches on "user choice" to capture which choice a user made and send it to a variable "userChoice".
+    // TODO: Make this "userChoice" display in all results views.
+    // TODO: Make a function that determines who won (or modify the user capture function to include this).
+    // TODO: Make the gameplay function, referenced above, output the winner to a new class variable.
+    // TODO: Pass this new class variable to the results VC with each of the three presentation approaches for the next VC.
+    // TODO: Append the function to conditionally display "you won" or "you lost" 
+    // TODO: Make the "you won" or "you lost" display on results
+    // TODO: Append the function or create a new one to include description messages
+    // TODO: Make these description messages appear in the results VC. (Data is passed and outlets are set up.)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +46,7 @@ class PlayViewController: UIViewController {
         var controller: ResultsViewController
         
         controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
-        
+    
         controller.testData = testData
         
         self.presentViewController(controller, animated: true, completion: nil)

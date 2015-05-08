@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1DDD4D14-F6EC-4B20-9783-259AB4BC3343</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Roshambo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9E3D000B962AEC7B054F6852861D08866894C1FC</key>
+		<string>https://github.com/brendandmcdonald/2.2-Roshambo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Roshambo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9E3D000B962AEC7B054F6852861D08866894C1FC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/brendandmcdonald/2.2-Roshambo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9E3D000B962AEC7B054F6852861D08866894C1FC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9E3D000B962AEC7B054F6852861D08866894C1FC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Roshambo</string>
+		</dict>
+	</array>
+</dict>
+</plist>
