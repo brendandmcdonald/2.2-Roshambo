@@ -17,16 +17,20 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var resultExplanationLabel: UILabel!
     
-    @IBOutlet weak var testLabel: UILabel!
-    
     var testData: String?
     var computerChoice: String?
+    var userChoice: String?
+    var whoWon: String?
+    var whoWonExplanation: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.testLabel.text = testData
+        self.whatUserPlayedLabel.text = userChoice
         self.whatComputerPlayedLabel.text = computerChoice
+        
+        self.resultLabel.text = whoWon
+        self.resultExplanationLabel.text = whoWonExplanation
     }
     
     override func didReceiveMemoryWarning() {

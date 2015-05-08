@@ -15,18 +15,31 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var scissorsButton: UIButton!
     
     var computerChoice: String?
-    var userChoice: String?
+    // var userChoice: String? NOT USING THIS BECAUSE WE DONT COLLECT THIS. WE JUMP STRAIGHT FROM BUTTON PRESS TO SWITCH STATEMENTS THAT DETERMINE THE WINNER.
     
+    var winner: String?
+    var winnerExlanation: String?
+    
+    
+    // These variables make our code cleaner and not hard-coded.
     let r = "Rock"
     let p = "Paper"
     let s = "Scissors"
     
-    var testData = "Hello, World"
+    let userWon = "You Won!"
+    let computerWon = "You Lost."
+    let tie = "You Tied."
+    
+    let tieExplanation = "Samesies!"
+    let paperAndRockExplanation = "Paper Covers Rock"
+    let rockAndScissorsExplanation = "Rock Smashes Scissors"
+    let scissorsAndPaperExplanation = "Scissors Cut Paper"
     
     // :) Add a function that makes a random play for the computer and outputs it to "computerChoice".
     // :) Fix autolayout so everything is visible
     // :) Make this "computerChoice" display in all results views.
     // TODO: Make a function that switches on "user choice" to capture which choice a user made and send it to a variable "userChoice".
+    // TODO: Compare user choices to computer choices and use it to determine a winner.
     // TODO: Make this "userChoice" display in all results views.
     // TODO: Make a function that determines who won (or modify the user capture function to include this).
     // TODO: Make the gameplay function, referenced above, output the winner to a new class variable.
@@ -35,6 +48,7 @@ class PlayViewController: UIViewController {
     // TODO: Make the "you won" or "you lost" display on results
     // TODO: Append the function or create a new one to include description messages
     // TODO: Make these description messages appear in the results VC. (Data is passed and outlets are set up.)
+    // TODO: Delete all test data in presentation and code
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +71,24 @@ class PlayViewController: UIViewController {
         var controller: ResultsViewController
         
         controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
-    
-        controller.testData = testData
+        
+        // User Chose Rock: Compare user choice to computer choice; output winner.
+        switch self.computerChoice!{
+            case p:
+                self.winner = computerWon
+                self.winnerExlanation = paperAndRockExplanation
+            case s:
+                self.winner = userWon
+                self.winnerExlanation = rockAndScissorsExplanation
+            default:
+                self.winner = tie
+                self.winnerExlanation = tieExplanation
+            }
+        
         controller.computerChoice = self.computerChoice
+        controller.userChoice = r
+        controller.whoWon = self.winner
+        controller.whoWonExplanation = self.winnerExlanation
         
         self.presentViewController(controller, animated: true, completion: nil)
         
@@ -68,7 +97,7 @@ class PlayViewController: UIViewController {
     // Option 2: Programmatic + Segue VC Presentation
     @IBAction func paperResults() {
         
-        performSegueWithIdentifier("customSegue", sender: self)
+        performSegueWithIdentifier("paper", sender: self)
         //code segue
     }
     
@@ -83,13 +112,52 @@ class PlayViewController: UIViewController {
         
         let controller = segue.destinationViewController as! ResultsViewController
         
-        controller.testData = testData
         controller.computerChoice = self.computerChoice
+        
+        if segue.identifier == "paper" {
+            //Pass data on user choice.
+            controller.userChoice = p
+            
+            // User Chose Paper: Compare user choice to computer choice; output winner.
+            switch self.computerChoice!{
+            case s:
+                self.winner = computerWon
+                self.winnerExlanation = scissorsAndPaperExplanation
+            case r:
+                self.winner = userWon
+                self.winnerExlanation = paperAndRockExplanation
+            default:
+                self.winner = tie
+                self.winnerExlanation = tieExplanation
+            }
+        }
+        else {
+            //This means the user chose Scissors
+            
+            //Pass data on user choice.
+            controller.userChoice = s
+            
+            // User Chose Paper: Compare user choice to computer choice; output winner.
+            switch self.computerChoice!{
+            case r:
+                self.winner = computerWon
+                self.winnerExlanation = rockAndScissorsExplanation
+            case p:
+                self.winner = userWon
+                self.winnerExlanation = scissorsAndPaperExplanation
+            default:
+                self.winner = tie
+                self.winnerExlanation = tieExplanation
+            }
+        }
+        
+        controller.whoWon = self.winner
+        controller.whoWonExplanation = self.winnerExlanation
+        
     }
     
     
     ///// This is the area where we do all of the gameplay
-    
     func computerPlay(){
         // returns a random play choice for the computer
         switch arc4random() % 3 {
@@ -102,66 +170,4 @@ class PlayViewController: UIViewController {
         }
     }
     
-    /*
-    let winner: String
-    let userChoice: String
-    
-    func computerChooses() {
-        // Choose a random element from RPS and set result as class variable.
-        var choice: String
-        let randomNumberFrom1To3 = Int(1 + arc4random() % 3)
-        switch randomNumberFrom1To3{
-        case 1: computerChoice = r
-        case 2: self.computerChoice = p
-        case 3: self.computerChoice = s
-        default: println("there is an error")
-        }
-    
-    */
-    
-    
-    
-    
-    
-    
 }
-
-/*
-func throwDown(playersMove: RPS)
-{
-// Here the RPS enum generates the opponent's move
-let computersMove = RPS()
-
-// =The RPSMatch struct stores the results of a match
-self.match = RPSMatch(p1: playersMove, p2: computersMove)
-
-//Here are the 3 ways of presenting a View Controller
-
-// 1st Way: Programmatic View Controller Presentation
-if (playersMove == RPS.Rock) {
-// Get the storyboard and ResultViewController
-var storyboard = UIStoryboard (name: "Main", bundle: nil)
-var resultVC = storyboard.instantiateViewControllerWithIdentifier("ResultViewController") as! ResultViewController
-
-// Communicate the match
-resultVC.match = self.match
-self.presentViewController(resultVC, animated: true, completion: nil)
-}
-
-// 2nd Way: Code plus Segue
-else if (playersMove == RPS.Paper) {
-performSegueWithIdentifier("throwDownPaper", sender: self)
-}
-
-// 3rd Way: Segue Only, No code!
-// But don't forget to implement prepareForSegue.
-}
-
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
-//Notice that this code works for both Scissors and Paper
-let controller = segue.destinationViewController as! ResultViewController
-controller.match = self.match
-}
-*/
-
