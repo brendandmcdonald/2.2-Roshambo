@@ -15,11 +15,17 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var scissorsButton: UIButton!
     
     var computerChoice: String?
+    var userChoice: String?
+    
+    let r = "Rock"
+    let p = "Paper"
+    let s = "Scissors"
     
     var testData = "Hello, World"
     
-    // TODO: Add a function that makes a random play for the computer and outputs it to "computerChoice".
-    // TODO: Make this "computerChoice" display in all results views.
+    // :) Add a function that makes a random play for the computer and outputs it to "computerChoice".
+    // :) Fix autolayout so everything is visible
+    // :) Make this "computerChoice" display in all results views.
     // TODO: Make a function that switches on "user choice" to capture which choice a user made and send it to a variable "userChoice".
     // TODO: Make this "userChoice" display in all results views.
     // TODO: Make a function that determines who won (or modify the user capture function to include this).
@@ -34,6 +40,10 @@ class PlayViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        computerPlay() // set up the initial value for computer choice.
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,11 +53,13 @@ class PlayViewController: UIViewController {
     // Option 1: Solely Programmatic VC Presentation
     @IBAction func rockResults() {
         // code only
+        
         var controller: ResultsViewController
         
         controller = self.storyboard?.instantiateViewControllerWithIdentifier("ResultsViewController") as! ResultsViewController
     
         controller.testData = testData
+        controller.computerChoice = self.computerChoice
         
         self.presentViewController(controller, animated: true, completion: nil)
         
@@ -72,7 +84,46 @@ class PlayViewController: UIViewController {
         let controller = segue.destinationViewController as! ResultsViewController
         
         controller.testData = testData
+        controller.computerChoice = self.computerChoice
     }
+    
+    
+    ///// This is the area where we do all of the gameplay
+    
+    func computerPlay(){
+        // returns a random play choice for the computer
+        switch arc4random() % 3 {
+        case 0:
+            self.computerChoice = r
+        case 1:
+            self.computerChoice = p
+        default:
+            self.computerChoice = s
+        }
+    }
+    
+    /*
+    let winner: String
+    let userChoice: String
+    
+    func computerChooses() {
+        // Choose a random element from RPS and set result as class variable.
+        var choice: String
+        let randomNumberFrom1To3 = Int(1 + arc4random() % 3)
+        switch randomNumberFrom1To3{
+        case 1: computerChoice = r
+        case 2: self.computerChoice = p
+        case 3: self.computerChoice = s
+        default: println("there is an error")
+        }
+    
+    */
+    
+    
+    
+    
+    
+    
 }
 
 /*

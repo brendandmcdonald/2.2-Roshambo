@@ -20,11 +20,13 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var testLabel: UILabel!
     
     var testData: String?
+    var computerChoice: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.testLabel.text = testData
+        self.whatComputerPlayedLabel.text = computerChoice
     }
     
     override func didReceiveMemoryWarning() {
